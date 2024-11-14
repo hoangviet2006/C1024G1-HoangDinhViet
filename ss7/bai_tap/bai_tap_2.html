@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="celsius" placeholder="Độ C">
+<button onclick="chuyendoi()" id="convertButton">Chuyển đổi</button>
+<script>
+  function chuyendoi(){
+   let celsius= +document.getElementById("celsius")
+  let placeholder = (celsius*9/5)+ 32;
+   document.getElementById('result').innerText = celsius + " °C = " + fahrenheit.toFixed(2) + " °F";
+  }
+</script>
+</body>
+</html>

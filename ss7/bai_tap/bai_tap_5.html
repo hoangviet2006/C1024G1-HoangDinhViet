@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Số Lượng
+<input type="text" id="number"><br>
+Từ  Tiền Tệ
+<select id="one">
+  <option value="VND">VND</option>
+  <option VALUE="USD">Đô LA Mỹ</option>
+</select><br>
+Đến Tiền Tệ
+<select id="two">
+  <option value="VND">VND</option>
+  <option VALUE="USD">Đô La Mỹ</option>
+</select><br>
+<button onclick="chuyenThanh()">Chuyển Thành</button>
+<h4 id="result">Kết Quả: </h4>
+ <script>
+   function chuyenThanh() {
+      let one = document.getElementById("one").value;
+      let two = document.getElementById("two").value;
+      let number = document.getElementById("number").value;
+      let result;
+      if (one === "VND" && two === "USD") {
+         result = parseInt(number) / 25000;
+      } else if (one === "USD" && two === "VND"){
+          result = parseInt(number) * 25000
+      } else if (one === "USD" && two === "USD"){
+          result = parseInt(number)
+      } else if (one === "VND" && two === "VND"){
+          result = parseInt(number)
+      }
+      else {
+          result = number;
+      }
+       document.getElementById("result").innerHTML = result;
+   }
+ </script>
+</body>
+</html>

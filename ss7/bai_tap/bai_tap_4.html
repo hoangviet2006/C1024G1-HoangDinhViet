@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="n1" placeholder="Nhập Số Thứ nhất">
+<input type="number" id="n2" placeholder="Nhập Số Thứ Hai">
+<button onclick="cong()" id="display"> Cộng</button>
+<button onclick="tru()" id="display2"> Trừ </button>
+<h4>Kết quả: </h4>
+<p id="ketQua"></p>
+<script>
+  function cong(){
+    let n1=  +document.getElementById("n1").value;
+    let n2=  +document.getElementById("n2").value;
+    let sum= n1+n2;
+    document.getElementById("ketQua").innerHTML = sum;
+  }
+  function tru() {
+    let n1 = +document.getElementById("n1").value;
+    let n2 = +document.getElementById("n2").value;
+    let subtract = n1 - n2;
+    document.getElementById("ketQua").innerHTML = subtract;
+  }
+</script>
+</body>
+</html>

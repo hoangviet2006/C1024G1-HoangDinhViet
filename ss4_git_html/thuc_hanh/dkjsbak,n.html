@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input id="n1">
+<input id="n2">
+<button onclick="tinhTong()">Tính tổng</button>
+<p id="display"></p>
+<p id="display2"></p>
+<script>
+  // ẩn ctrl+/
+  // output
+  // + sử dụng hàm alert () => hộp thoại
+  // alert("Hello");
+  // + document.write;
+  // document.write("Hello");
+  // document.getElementById('display').innerText ="<button>Send</button>";
+  // document.getElementById('display2').innerHTML ="<button>Send</button>";
+  // + cửa sổ colsole.log; => dùng để kiểm tra dữ liệu
+  // console.log("Xin chào")
+
+  // input;
+  // prompt ();
+  // let ten = prompt("nhập tên của bạn");
+  // alert("tên vừa nhập là : "+ ten);
+
+  // tính tổng tổng 2 ssos
+  //  let n1 = +prompt("nhập số thứ nhất");
+  //  let n2 = +prompt("nhập số thứ hai");
+  //  let sum = n1+n2;
+  //  alert("kết quả là: "+ sum)
+
+  function tinhTong() {
+    let n1=  +document.getElementById("n1").value;
+    let n2=  +document.getElementById("n2").value;
+    let sum = n1+n2;
+     document.getElementById("display").innerText = sum;
+  //alert("kết quả là:"+sum)
+  }
+</script>
+</body>
+</html>

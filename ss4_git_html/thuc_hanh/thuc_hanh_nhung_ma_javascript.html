@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="n1">
+<input id="n2">
+<input id="n3">
+<button type="button" onclick="tinhTrungBinh()"> Click Me</button>
+<p id="display"></p>
+<p id="display2"></p>
+<p id="display3"></p>
+<script>
+  function tinhTrungBinh(){
+    let n1= +document.getElementById("n1").value;
+    let n2= +document.getElementById("n2").value;
+    let n3= +document.getElementById("n3").value;
+    let medium = (n1+n2+n3)/2;
+    alert(" kết quả là:"+medium)
+  }
+</script>
+</body>
+</html>

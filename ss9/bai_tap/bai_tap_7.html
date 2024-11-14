@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a= +prompt("Nhập Giá Trị A")
+  let b= +prompt("Nhập Giá Trị B")
+  let c= +prompt("Nhập Giá Trị C")
+  let delta= parseInt((b*b)-4*a*c)
+  console.log(delta)
+  let x1;
+  let x2;
+  if( delta<0){
+     document.write("Phương Trình vô nghiệm" )
+  }else if(delta==0){
+      x1= -b/2*a
+    document.write("phương Trình có  nghiệm kép: X1=X2 = "+ x1  )
+  }else{
+      x1=(-b+Math.sqrt(delta))/2*a
+      x2=(-b-Math.sqrt(delta))/2*a
+      document.write("phương trình có 2 nghiệm phân biệt: X1 = " +x1 + " X2 = " + x2)
+  }
+</script>
+
+</body>
+</html>

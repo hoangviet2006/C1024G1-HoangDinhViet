@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoa Hồng</title>
+</head>
+<body>
+<script>
+  let doanhSo = prompt("Doanh Số Bán Hàng");
+  let hoaHong =0;
+  if (doanhSo<=10) {
+    hoaHong=0.1*doanhSo;
+    document.write("hoaHong: " +hoaHong);
+  }else if (doanhSo<=25) {
+    hoaHong=0.2*doanhSo;
+    document.write("hoaHong: " +hoaHong);
+  }else if (doanhSo<=50) {
+    hoaHong = 0.3*doanhSo;
+    document.write("hoaHong: " +hoaHong);
+  }else {
+    hoaHong= 0.4*doanhSo;
+    document.write("hoaHong: "+hoaHong);
+  }
+</script>
+</body>
+</html>

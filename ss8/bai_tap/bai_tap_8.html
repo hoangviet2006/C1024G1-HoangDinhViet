@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiền Điện Thoại</title>
+</head>
+<body>
+<script>
+  let soPhut= prompt("Số Phút Gọi");
+  let cuocPhi=0;
+  if (soPhut<=10){
+    cuocPhi=soPhut*2000;
+    document.write("Số Tiền Cước: " +cuocPhi);
+  }else if (soPhut<=25){
+    cuocPhi=soPhut*3000
+    document.write("Số Tiền Cước: "+cuocPhi);
+  }else if (soPhut<=60){
+    cuocPhi=soPhut*4000
+    document.write("Số Tiền Cước: "+cuocPhi);
+  }else {
+    cuocPhi=soPhut*5000
+    document.write("Số Tiền Cước: "+cuocPhi);
+  }
+</script>
+</body>
+</html>
