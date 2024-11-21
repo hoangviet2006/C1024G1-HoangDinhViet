@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let n2 = ["UrsaMinor", "Tarurus", "Cygnus", "Lyra", "Aquila", "UrsaMajor", "Leo"];
+    let word = prompt("Nhập ngôi sao");
+    index = -1;
+    for (let i = 0; i < n1.length; i++) {
+        if (word === n1[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index !== -1) {
+        document.write(n2[index])
+    } else {
+        document.write("không tìm thấy chòm sao")
+    }
+</script>
+</body>
+</html>

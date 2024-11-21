@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let nhietDo;
+  while (true){
+      nhietDo = prompt("Nhập Nhiệt Độ:")
+      if (isNaN(nhietDo)){
+          alert("Nhập lại nhiệt độ, Nhiệt độ phải là số")
+      }else {
+          if (nhietDo>=100) {
+              nhietDo = prompt("Nhiệt độ quá cao giảm nhiệt độ")
+          }else if (nhietDo<20){
+              nhietDo = prompt(" Nhiệt Độ thấp quá tăng nhiệt độ")
+          }else {
+              alert("Nhiệt Độ Bình Thường:")
+              break;
+          }
+      }
+  }
+</script>
+</body>
+</html>

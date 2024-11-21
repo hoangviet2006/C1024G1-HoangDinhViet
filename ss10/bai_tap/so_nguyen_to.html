@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt("Nhập số nguyên to can hien thi: ")
+    let i = 2;
+    let check;
+    while (count < number) {
+         check = true;
+        if (i === 2) {
+            check = true;
+        } else {
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    check = false;
+                    break;
+                }
+            }
+        }
+        if (check) {
+            document.write(i + "<br>");
+            count++;
+        }
+        i++;
+    }
+</script>
+</body>
+</html>

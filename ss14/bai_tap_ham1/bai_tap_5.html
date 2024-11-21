@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="anVao()">An Vao  Day</button>
+</body>
+<script>
+    function anVao() {
+        let number1 = parseInt(prompt("nhap vao so nguyen thu nhat"));
+        let number2 = parseInt(prompt(" Nhap vao so nguyen thu hai: "));
+        let tong = number1 + number2
+        if (number1 > number2) {
+            alert(number1 + ">" + number2)
+        }
+        if (number1 <= number2) {
+            alert("tong cua hai so: " + tong)
+        }
+    }
+</script>
+
+</html>

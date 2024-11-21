@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="tinhGiaiThua()"> click</button>
+</body>
+<script>
+    function tinhGiaiThua() {
+        let n = +prompt("nhập vào một số : ")
+        while (n <= 0) {
+            n = +prompt("nhập Lại :")
+        }
+        let giaiThua = 1;
+        for (i = 1; i <= n; i++) {
+            giaiThua *= i
+        }alert("giai thừa của: " + giaiThua)
+    }
+</script>
+</html>

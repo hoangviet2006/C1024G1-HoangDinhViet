@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="productName" placeholder="Nhập Tên Sản Phẩm">
+<button onclick="addProduct">save</button>
+<p id="dislay"></p>
+<script>
+    let productList = ["Sam Sum", "Nokia", "Iphone"]
+    display();
+
+    function addProduct() {
+        let productName = document.getElementById("productName").value;
+        productList.push(productName)
+        display();
+    }
+
+    function display() {
+        let tableString = `<table border="1">
+  <tr>
+    <th>STT</th>
+    <th>Tên Sản Phẩm</th>
+    <th>Sửa</th>
+    <th>Xóa</th>
+  </tr>`;
+
+        for (let i = 0; i < productList.length; i++) {
+            tableString +=
+                `<tr>
+                     <td>${i+1}</td>
+                     <td>${productList[i]}</td>
+                     <td><button>Sửa</button></td>
+                     <td><button>Xóa</button></td>
+                </tr>`;
+        }
+        document.getElementById("dislay").innerHTML = tableString;
+    }
+
+</script>
+</body>
+</html>

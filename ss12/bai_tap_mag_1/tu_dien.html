@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let english = ["apple", "banana"];
+    let vietnamese = ["quả táo", "quả chuoi"];
+    let word = prompt("nhập từ cần tra cứu: ");
+    let index = -1;
+    for (let i = 0; i < english.length; i++) {
+        if (word === english[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index != -1) {
+        alert(word + ":" + vietnamese[index])
+    } else {
+        alert(word + "Không có trong từ điển: ")
+    }
+</script>
+</body>
+</html>

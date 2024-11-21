@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="timSoLonNhat()"> click</button>
+</body>
+<script>
+    function timSoLonNhat() {
+        let number = +prompt("nhập vào  số thu nhat: ");
+        let number1 = +prompt("nhap vao so thu hai: ");
+        let number2 = +prompt("nhap vao so thu ba: ");
+        if (number < number1 && number < number2) {
+            alert(number + " là số nhỏ nhất")
+        } else {
+            if (number2 < number1) {
+                alert(number2 + "là số nhỏ nhât")
+            } else {
+                alert(number1 + "là số nhỏ nhât")
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n1 = +prompt("nhập độ dài của mảng 1: ");
+    let n2 = +prompt("nhập độ dài mảng 2: ");
+    while (n1 > 5 && n2 > 5) {
+        n1 = +prompt("nhập lại độ dài mảng");
+    }
+    let arr = [];
+    for (let i = 0; i < n1; i++) {
+        let element = prompt("nhập phan tu thu:" + i)
+        arr.push(element);
+    }
+    document.write(arr + "<br>");
+    let arr2 = [];
+    for (let i = 0; i < n2; i++) {
+        let element = prompt("nhập phần tử thứ:" + i);
+        arr2.push(element);
+    }
+    document.write(arr2 + "<br>");
+    let  check = true;
+    if (n1 !== n2) {
+        check = false;
+    } else {
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] != arr2[i]) {
+                check = false;
+                break;
+            }
+        }
+    }
+    if (check) {
+        alert("hai mảng giống nhau");
+    } else {
+        alert("hai mảng không giống nhau");
+    }
+</script>
+</body>
+</html>

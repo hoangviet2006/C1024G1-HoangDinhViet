@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bảng cửu chương</h2>
+<div id="result"></div>
+<script>
+    let result = "<table border='solid 1px'>"
+    for (let i = 1; i <= 10; i++) {
+        result += "<tr>"
+        for (let j = 2; j <= 10; j++) {
+            result += "<td>" + j + "x" + i + " = " + i * j + "</td>"
+        }
+        result += "</tr>"
+    }
+    result += "</table>"
+    document.getElementById("result").innerHTML = result;
+</script>
+</body>
+</html>
