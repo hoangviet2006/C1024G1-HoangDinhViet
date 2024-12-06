@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+class Bongden{
+    constructor(status) {
+        this.status=status;
+    }
+    getStatus(){
+        return this.status
+    }
+}
+
+class CongTac{
+    constructor(den,status) {
+        this.status = status;
+        this.den = den;
+    }
+    getDen(){
+        return this.den;
+    }
+    setDen(den){
+        this.den=den
+    }
+    connecToDen(Bongden){
+        return this.den = Bongden;
+    }
+    switchoff(){
+        this.den.status = false
+        return this.status = false
+    }
+    switchon(){
+        this.den.status = true
+        return this.status = true
+    }
+     
+}
+
+
+
+
+</script>
+</body>
+</html>

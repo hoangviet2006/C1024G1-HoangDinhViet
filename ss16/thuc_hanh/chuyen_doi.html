@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+ class Temperature{
+      constructor(celsius) {
+        this.celsius = celsius;
+      }
+      getChuyenDoiSangK(){
+        return this.celsius+273.15;
+      }
+      getChuyenDoiSangF(){
+        return this.celsius*9/5+32;
+      }
+ }
+     let temperature = new Temperature(25)
+      document.write("25 C chuyển thành: "+ temperature.getChuyenDoiSangF()+"độ F" +"<br>")
+      document.write("25 C chuyển thành: "+ temperature.getChuyenDoiSangK()+"độ k")
+</script>
+</body>
+</html>

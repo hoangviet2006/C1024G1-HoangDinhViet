@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addStudent()">Thêm Học Viên</button>
+<button onclick="editStudent()">Sửa</button>
+<button onclick="deleteStudent()">Xóa</button>
+<p id="display"></p>
+<script>
+    class Student{
+        constructor(id,ten,lop,email,date) {
+            this.id = id;
+            this.ten = ten;
+            this.lop = lop;
+            this.email=email;
+            this.date = date;
+        }
+        setID(id){
+            this.id=id;
+        }
+        getID(){
+            return this.id;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setLop(lop){
+            this.lop=lop;
+        }
+        getLop(){
+            return this.lop;
+        }
+        setEmail(email){
+            this.email = email;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setDate(date){
+            this.date=date;
+        }
+        getDate(){
+            return this.date;
+        }
+    }
+     let Student1 = new Student(1,"Hoàng","C1024","abc@123","30/30/2006");
+     let Student2 = new Student(2,"Việt","C1024G1","ABC@123","24/09/2006");
+     let studentList = [Student1,Student2];
+     display();
+
+
+     function addStudent(){
+         let newId = prompt("Nhập ID");
+         let newName = prompt("Nhập Tên");
+         let newClas = prompt("Nhập Lớp");
+         let newEmail = prompt("Nhập Email");
+         let newDate = prompt("Nhập Ngày Sinh")
+         let student = new Student(newId,newName,newClas,newEmail,newDate);
+         studentList.push(student);
+         display();
+     }
+     function editStudent(){
+         let timID = prompt("Nhập Id Cần sửa");
+         let timIndex = -1;
+         for (let i = 0;i<studentList.length;i++) {
+             if (studentList[i].id == timID) {
+                 timIndex = i;
+                 break;
+             }
+         }
+             if (timIndex!==-1){
+                 let newName = prompt(" Nhập Tên Mới");
+                 let newClas = prompt(" Nhập Lớp Mới");
+                 let newEmail = prompt(" Nhập Email mới");
+                 let newDate = prompt("Nhập Ngày Sinh Mới");
+                 studentList[timIndex].setTen(newName);
+                 studentList[timIndex].setLop(newClas);
+                 studentList[timIndex].setEmail(newEmail);
+                 studentList[timIndex].setDate(newDate);
+                 display()
+             }else {
+                 alert("Không tìm thấy mã học viên")
+             }
+
+     }
+
+
+
+     function deleteStudent() {
+         let timID = prompt("Nhập Id Cần Xóa");
+         let timIndex = -1;
+         for (let i = 0; i < studentList.length; i++) {
+             if (studentList[i].id == timID) {
+                 timIndex = i;
+                 break;
+             }
+         }
+         if (timID !== -1) {
+             let conf = confirm("bạn có muốn xóa ID này không")
+             if (conf){
+                 studentList.splice(timIndex,1);
+                 display()
+             }else {
+                 alert("Không tìm thấy ID")
+             }
+         }
+
+     }
+
+
+    function display(){
+        let tableString = `<table border="1">
+        <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Lớp</th>
+                        <th>Email</th>
+                        <th>Date</th>
+        </tr>
+
+`
+        for (let i= 0; i<studentList.length; i++){
+            tableString +=`
+        <tr>
+                        <td>${studentList[i].id}</td>
+                        <td>${studentList[i].ten}</td>
+                        <td>${studentList[i].lop}</td>
+                        <td>${studentList[i].email}</td>
+                        <td>${studentList[i].date}</td>
+         </tr>
+
+            `
+        }
+        document.getElementById("display").innerHTML = tableString;
+    }
+</script>
+</body>
+</html>

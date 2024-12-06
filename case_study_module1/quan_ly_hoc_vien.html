@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+
+<p id="display"></p>
+<script>
+    class Product {
+        constructor(id, ten, lop, email, date) {
+            this.id = id;
+            this.ten = ten;
+            this.lop = lop;
+            this.email = email;
+            this.date = date;
+        }
+
+        setID(id) {
+            this.id = id;
+        }
+
+        getID() {
+            return this.id;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        setLop(lop) {
+            this.lop = lop;
+        }
+
+        getLop() {
+            return this.lop;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setDate(date) {
+            this.date = date;
+        }
+
+        getDate() {
+            return this.date;
+        }
+    }
+
+    let product1 = new Product(1, "Nguyễn Văn A", "C10", "abc@123", 24092006)
+    let product2 = new Product(2, "Nguyễn Văn B", "C10", "abc@123", 30032006)
+    let productList = [product1, product2]
+    display();
+
+    function addProduct() {
+
+        let nhapId = prompt("nhập ID");
+        let nhapTen = prompt("nhập tên");
+        let nhapLop = prompt("nhập lớp");
+        let nhapEmail = prompt("nhập emai");
+        let nhapNgaySinh = prompt("nhập ngày sinh");
+        let prduct = new Product(nhapId, nhapTen, nhapLop, nhapEmail, nhapNgaySinh);
+        productList.push(prduct)
+        display()
+    }
+
+    function editProduct() {
+        let newID = prompt("Nhập Id học viên cần sửa")
+        let timIndex = -1
+        for (let i = 0; i < productList.length; i++) {
+            if (productList[i].id == newID) {
+                timIndex = i;
+                break;
+            }
+        }
+        if (timIndex !== -1) {
+            let newName = prompt("Nhập Tên");
+            let newLop = prompt("Nhập Lớp");
+            let newEmail = prompt("Nhập email");
+            let newDate = prompt("Nhập ngày sinh");
+            productList[timIndex].setTen(newName);
+            productList[timIndex].setLop(newLop);
+            productList[timIndex].setEmail(newEmail);
+            productList[timIndex].setDate(newDate);
+            display();
+        } else {
+            alert("không tìm thấy mã học vien");
+        }
+    }
+
+    function deleteProduct() {
+        let newId = prompt("nhập id cần xóa")
+        let timId = -1;
+        for (let i = 0; i < productList.length; i++) {
+            if (productList[i].id == newId) {
+                timId = i;
+                break;
+            }
+        }
+        if (newId !== -1) {
+            let conf = confirm("bạn có muốn xóa không?")
+            if (conf) {
+                productList.splice(timId, 1);
+                display()
+            } else {
+                alert("không tìm thấy id")
+            }
+        }
+    }
+
+    function display() {
+        let tableString = `
+    <h1 class="text-primary text-center">Danh sách học viên</h1>
+    <button class="btn btn-success mb-3" onclick="addProduct()">Thêm Học Viên</button>
+     <button class="btn btn-warning" onclick="editProduct()">Sửa</button>
+                <button class="btn btn-danger" onclick="deleteProduct()">Xóa</button>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center">ID Học Viên</th>
+                    <th style="text-align: center">Tên</th>
+                    <th style="text-align: center">Lớp</th>
+                    <th style="text-align: center">Email</th>
+                    <th style="text-align: center">Ngày Sinh</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+        for (let i = 0; i < productList.length; i++) {
+            tableString += `
+            <tr>
+                <td style="text-align: center">${productList[i].id}</td>
+                <td style="text-align: center">${productList[i].ten}</td>
+                <td style="text-align: center">${productList[i].lop}</td>
+                <td style="text-align: center">${productList[i].email}</td>
+                <td style="text-align: center">${productList[i].date}</td>
+
+                <div class="text-center">
+
+</div>
+
+                </td>
+            </tr>
+        `;
+        }
+
+        tableString += `
+            </tbody>
+        </table>
+    </div>
+    `;
+
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let phanSo = prompt("Nhập phân số:")
+    find(phanSo);
+
+    function find(x) {
+        let arr = x.split("/")
+        if (arr.length==2&&arr[0] % 1 == 0 && arr[1] % 1 == 0) {
+            if (arr[0]>arr[1]){
+                for (let i=1;i<=arr[0];i++){
+                    UCLN = i;
+                }
+            }else {
+                for (let i=1;i<=arr[1];i++){
+                    UCLN = i;
+                }
+            }
+            alert(UCLN)
+
+
+            document.write("đây là phân số" + arr[0]/UCLN+"/"+arr[1]/UCLN)
+        } else {
+            document.write("đây không phải là phân số")
+        }
+    }
+
+</script>
+</body>
+</html>

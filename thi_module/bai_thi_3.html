@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addProduct()">Thêm Sổ</button>
+<button onclick="deleteStudent()">Xóa Sổ</button>
+<p id="display"></p>
+<script>
+    class Product {
+        constructor(id, book, name, number, date, amount) {
+            this.id = id;
+            this.book = book;
+            this.name = name;
+            this.number = number;
+            this.date = date;
+            this.amount = amount;
+
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setBook(book) {
+            this.book = book;
+        }
+
+        getBook() {
+            return this.book;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setNumber(number) {
+            this.number = number;
+        }
+
+        getNumber() {
+            return this.number;
+        }
+
+        setAmount(amount) {
+            this.amount = amount;
+        }
+
+        getAmount() {
+            return this.amount;
+        }
+
+        setDate(date) {
+            this.date = date
+        }
+
+        getDate() {
+            return this.date;
+        }
+    }
+
+    let product1 = new Product(16545, "ABC123", "Hoàng Đình Việt", "589425","20/02/2021",5000000);
+    let product2 = new Product(26544, "ABC456", "Hoàng Đình Việt 2 ", "695444","30/302019",6000000);
+    let productList = [product1, product2];
+    display();
+    function addProduct() {
+      let id = prompt("Nhập ID")
+        while (parseFloat(id)!=id || id >100000){
+          id = prompt("Nhập lại")
+        }
+      let book =prompt("Nhập Kiểu Sổ")
+      let name = prompt("nhập tên")
+      let number = prompt("Nhập số CMND")
+      let date = prompt("Nhập ngày mở sổ")
+      let amount = prompt("nhập số tiền gửi")
+      let product = new Product(id,book, name,number,date, amount);
+      productList.push(product)
+      display();
+    }
+
+
+    function deleteStudent() {
+      let idSo = prompt("Nhap sổ muon xoa");
+      let timIndex = -1;
+      for (let i = 0; i < productList.length; i++) {
+        if (productList[i].id == idSo) {
+          timIndex = i;
+          break;
+        }
+      }
+      if (timIndex !== -1) {
+        let conf = confirm("Ban Co Muon Xoa");
+        if (conf) {
+          productList.splice(timIndex, 1);
+          display();
+        } else {
+          alert("Khong tim thay sổ")
+        }
+      }
+    }
+
+
+    function display() {
+        let tableString = ` <table border="1">
+ <tr>
+    <th>Mã số</th>
+    <th>Loại Sổ</th>
+    <th>Ten</th>
+    <th>Chứng Minh Nhân Dân</th>
+    <th>Ngày Mo So</th>
+    <th>Số Tiền Gửi</th>
+  </tr>
+    `;
+      for (let i = 0; i < productList.length; i++) {
+        tableString +=
+                `<tr>
+
+                     <td>${productList[i].id}</td>
+                     <td>${productList[i].book}</td>
+                     <td>${productList[i].name}</td>
+                     <td>${productList[i].number}</td>
+                     <td>${productList[i].date}</td>
+                     <td>${productList[i].amount}</td>
+                </tr>`;
+      }
+      document.getElementById("display").innerHTML = tableString;
+    }
+
+</script>
+</body>
+</html>

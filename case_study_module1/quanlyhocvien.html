@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addStudent()">Them Hoc Vien</button>
+<button onclick="deleteStudent()"> Xoa Hoc Vien</button>
+<button onclick="editStudent()">Chinh Sua Hoc Vien</button>
+
+
+<p id="display"></p>
+<script>
+    class Student {
+        constructor(id, name, clas, date) {
+            this.id = id;
+            this.name = name;
+            this.clas = clas;
+            this.date = date;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setClas(clas) {
+            this.clas = clas;
+        }
+
+        getClas() {
+            return this.clas;
+        }
+
+        setDate(date) {
+            this.date = date;
+        }
+
+        getDate() {
+            return this.date;
+        }
+    }
+
+    let student1 = new Student(1, "Hoang", "C10", 2006);
+    let student2 = new Student(2, "Viet", "C11", 2005);
+    let studentList = [student1, student2];
+    display();
+
+
+    function addStudent() {
+        let newId = prompt("Nhap Id cua Hoc Vien");
+        let newName = prompt("Nhap Ten cua Hoc Vien");
+        let newClas = prompt("Nhap Lop cua Hoc Vien");
+        let newDate = prompt("Nhap Nam Sinh cua Hoc Vien");
+        let student = new Student(newId, newName, newClas, newDate);
+        studentList.push(student);
+        display()
+    }
+
+
+    function deleteStudent() {
+        let idHocVien = prompt("Nhap Id Hoc Vien");
+        let timIndex = -1;
+        for (let i = 0; i < studentList.length; i++) {
+            if (studentList[i].id == idHocVien) {
+
+                timIndex = i;
+                break;
+            }
+        }
+        if (timIndex !== -1) {
+            let conf = confirm("Ban Co Muon Xoa");
+            if (conf) {
+                studentList.splice(timIndex, 1);
+                display();
+            } else {
+                alert("Khong tim thay id")
+            }
+        }
+    }
+
+
+    function editStudent() {
+        let idHocVien = prompt("Nhap Id can chinh sua")
+        let timIndex = -1;
+        for (let i = 0; i < studentList.length; i++) {
+            if (studentList[i].id == idHocVien) {
+                timIndex = i;
+                break;
+            }
+        }
+        if (timIndex !== -1) {
+            let newName = prompt("Nhap Ten Moi Cua Hoc Vien");
+            let newClas = prompt("Nhap Lop Moi Cua Hoc Vien");
+            let newDate = prompt("Nhap Nam sinh Moi Cua Hoc Vien");
+            studentList[timIndex].setName(newName);
+            studentList[timIndex].setClas(newClas);
+            studentList[timIndex].setDate(newDate);
+            display();
+        } else {
+            alert("Khong Tim Thay Id")
+        }
+    }
+
+
+    function display() {
+        let tableString = `<table border="1">
+          <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Lớp</th>
+                    <th>Năm Sinh</th>
+          </tr>
+
+ `
+        for (let i = 0; i < studentList.length; i++) {
+            tableString += `
+         <tr>
+                   <td>${studentList[i].id}</td>
+                   <td>${studentList[i].name}</td>
+                   <td>${studentList[i].clas}</td>
+                   <td>${studentList[i].date}</td>
+         </tr>
+
+      `
+        }
+        document.getElementById("display").innerHTML = tableString;
+    }
+</script>
+</body>
+</html>

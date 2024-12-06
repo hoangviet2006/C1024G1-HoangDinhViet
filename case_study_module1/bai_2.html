@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a =  +prompt("nhập cạnh A")
+  let b =  +prompt("nhập cạnh B")
+  let c =  +prompt("nhập cạnh C")
+
+  checkTriangle();
+
+ function checkTriangle() {
+
+     if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a) {
+         if ((a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == b * b + a * a)) {
+              document.write("đây là một tam giác vuông")
+         } else {
+             document.write("đây chỉ là một tam giác")
+         }
+     } else {
+         document.write("đây không phải là một tam giác")
+     }
+ }
+
+</script>
+</body>
+</html>

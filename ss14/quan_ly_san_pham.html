@@ -5,16 +5,69 @@
     <title>Title</title>
 </head>
 <body>
-<input id="productName" placeholder="Nhập Tên Sản Phẩm">
-<button onclick="addProduct">save</button>
-<p id="dislay"></p>
+<input id="id" placeholder="Id Sản Phẩm">
+<input id="name" placeholder="Nhập Tên Sản Phẩm">
+<input id="price" placeholder="Nhập Giá Sản Phẩm">
+<button onclick="addProduct()">save</button>
+<p id="display"></p>
 <script>
-    let productList = ["Sam Sum", "Nokia", "Iphone"]
+    class Product {
+        constructor(id, name, price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+     setId(id){
+            this.id = id;
+     }
+     getId(){
+            return this.id;
+     }
+     setName(name){
+            this.name = name;
+     }
+     getName(){
+            return this.name;
+     }
+     setPrice(price){
+            this.price = price;
+     }
+     getPrice(){
+            return this.price;
+     }
+    }
+
+    let product1 = new Product(1, "ss", 300)
+    let product2 = new Product(2, "adr", 300)
+    let product3 = new Product(3, "ip", 300)
+
+    let productList = [product1, product2, product3]
     display();
 
     function addProduct() {
-        let productName = document.getElementById("productName").value;
-        productList.push(productName)
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let product = new Product(id, name, price);
+        productList.push(product)
+        display();
+    }
+
+    function deleteProduct(index) {
+        let conf = confirm("Bạn có muốn xóa sản phẩm này không?");
+        if (conf) {
+            productList.splice(index, 1);
+            display();
+        }
+    }
+
+    function updateProduct(index) {
+        let newName = prompt("Nhâp tên mới");
+        let newPrice = prompt("nhập giá cần sửa")
+
+        productList[index].setName(newName);
+        productList[index].setPrice(newPrice);
+
         display();
     }
 
@@ -22,7 +75,9 @@
         let tableString = `<table border="1">
   <tr>
     <th>STT</th>
+    <th> Id Sản Phẩm</th>
     <th>Tên Sản Phẩm</th>
+    <th>Giá Sản Phẩm</th>
     <th>Sửa</th>
     <th>Xóa</th>
   </tr>`;
@@ -30,15 +85,16 @@
         for (let i = 0; i < productList.length; i++) {
             tableString +=
                 `<tr>
-                     <td>${i+1}</td>
-                     <td>${productList[i]}</td>
-                     <td><button>Sửa</button></td>
-                     <td><button>Xóa</button></td>
+                     <td>${i + 1}</td>
+                     <td>${productList[i].id}</td>
+                     <td>${productList[i].name}</td>
+                     <td>${productList[i].price}</td>
+                     <td><button onclick="updateProduct(${i})">Sửa</button></td>
+                     <td><button onclick="deleteProduct(${i})">Xóa</button></td>
                 </tr>`;
         }
-        document.getElementById("dislay").innerHTML = tableString;
+        document.getElementById("display").innerHTML = tableString;
     }
-
 </script>
 </body>
 </html>

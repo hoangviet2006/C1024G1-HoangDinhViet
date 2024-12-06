@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nhapSo = prompt("nhập vào  phân số thứ nhất")
+    let nhapSo1 = prompt("nhập vào phân số thứ 2")
+    phanSo(nhapSo,nhapSo1)
+
+    function phanSo(x,y) {
+        let arr = x.split("/")
+        let arr1 = y.split("/")
+        if (arr.length == 2 && arr[0] % 1 == 0 && arr[1] % 1 == 0) {
+            if (nhapSo === nhapSo1) {
+                alert("true")
+            } else {
+                alert("false")
+            }
+        }
+    }
+</script>
+</body>
+</html>
